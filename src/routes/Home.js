@@ -11,19 +11,18 @@ const Home=({userObj})=>{
     const [kweets,setKweets]=useState([]);
 
     const postsCollectionRef=collection(dbService,"kweets");
-
-    //이미지 관련
-    const [attachment,setAttachment]=useState("");
-    const imageListRef=ref(storageService,"/images");
-
+    
     useEffect(()=>{
-        console.log('유저이펙트다제~~')
         const q=query(postsCollectionRef,orderBy("createdAt","desc"));
         onSnapshot(q,(snapshot)=>{
             setKweets(snapshot.docs.map((doc)=>({...doc.data(),id:doc.id})))
         })
-
+        
     },[]);
+
+    //이미지 관련
+    const [attachment,setAttachment]=useState("");
+    const imageListRef=ref(storageService,"/images");
 
     const onSubmit=async(e)=>{
         e.preventDefault();

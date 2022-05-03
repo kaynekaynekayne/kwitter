@@ -4,23 +4,27 @@ import Home from "../routes/Home";
 import Auth from "../routes/Auth";
 import Profile from "../routes/Profile";
 
-const AppRouter=({isLoggedIn,userObj})=>{
+const AppRouter=({isLoggedIn,userObj,refreshUser})=>{
     
     return(
         <Router>
             <nav>
                 {isLoggedIn && (
-                    <>
-                        <Link to="/">Home    </Link>
-                        <Link to="/profile">My Profile</Link>
-                    </>
+                    <ul>
+                        <li>
+                            <Link to="/">Home    </Link>
+                        </li>
+                        <li>
+                            <Link to="/profile">{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile</Link>
+                        </li>
+                    </ul>
                 )}
             </nav>  
             <Routes>
                 {isLoggedIn ? (
                     <>
                         <Route path="/" element={<Home userObj={userObj}/>}/>
-                        <Route path="/profile" element={<Profile />}/>
+                        <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser}/>}/>
                     </>
                 ) : (
                     <Route path="/" element={<Auth />}/>

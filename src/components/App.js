@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import AppRouter from './Router';
 import {authService,dbService} from '../fbase';
-import {onAuthStateChanged} from 'firebase/auth'
+import {onAuthStateChanged, updateProfile} from 'firebase/auth'
 
 function App() {
   const [init,setInit]=useState(false);
@@ -13,7 +13,17 @@ function App() {
       //user->로그인한 유저
       if(user){
         setIsLoggedIn(true);
-        setUserObj(user);
+        //setUserObj(user); 밑에 수정 전
+        setUserObj({
+          displayName:user.displayName,
+          uid:user.uid,
+          updateProfile:()=>updateProfile(user,{displayName:user.displayName})
+        });
+        if(user.displayName===null){
+          updateProfile(userObj,{
+            displayName:"anonymous",
+          })
+        }
       } else{
         setIsLoggedIn(false);
       }
@@ -21,11 +31,25 @@ function App() {
     })
   },[])
 
+  const refreshUser=()=>{
+    const user=authService.currentUser;
+    console.log(user);
+    setUserObj({
+      displayName:user.displayName,
+      uid:user.uid,
+      updateProfile:()=>updateProfile(user,{
+        displayName:user.displayName})
+    });
+  }
+
   return (
     <div>
       {init ? <AppRouter 
         userObj={userObj}
-        isLoggedIn={isLoggedIn}/> : "Initializing.."}
+        isLoggedIn={isLoggedIn}
+        refreshUser={refreshUser}
+        /> : "Initializing.."
+      }
     </div>
   );
 }
