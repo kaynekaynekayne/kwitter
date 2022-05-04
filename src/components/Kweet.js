@@ -40,28 +40,30 @@ const Kweet=({kweet,isOwner})=>{
     }
 
     return(
-        <div>
+        <div className="kweet">
             {editing ? (
                 <>
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmit} className="container kweetEdit">
                         <input
                             onChange={(e)=>setNewKweet(e.target.value)}
                             value={newKweet} 
                             type="text"
-                            required/>
-                        <input type="submit" value="Update"/>
-                        <button onClick={toggleEditing}>Cancel</button>
+                            required
+                            className="formInput"    
+                        />
+                        <input type="submit" value="Update" className="formBtn"/>
+                        <span onClick={toggleEditing} className="formBtn cancelBtn">Cancel</span>
                     </form>
                 </>
             ) : (
                 <>
-                    <h4>{kweet.text}</h4>
+                    <p>{kweet.text}</p>
                     {kweet.attachmentUrl && <img src={kweet.attachmentUrl} />}
                     {isOwner && (
-                        <>
+                        <div className="kweet__actions">
                             <button onClick={()=>{deleteKweet(kweet.id)}}>Delete Kweet</button>
                             <button onClick={toggleEditing}>Edit Kweet</button>
-                        </>
+                        </div>
                     )}
                 </>
             )

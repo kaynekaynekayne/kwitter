@@ -10,9 +10,9 @@ const AppRouter=({isLoggedIn,userObj,refreshUser})=>{
         <Router>
             <nav>
                 {isLoggedIn && (
-                    <ul>
-                        <li>
-                            <Link to="/">Home    </Link>
+                    <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
+                        <li >
+                            <Link to="/" style={{ marginRight: 30 }}>Home</Link>
                         </li>
                         <li>
                             <Link to="/profile">{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile</Link>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nunito:wght@300&display=swap');
+*{
+    box-sizing:border-box;
+    list-style: none;
+}
+
+input{
+    all:unset;
+    appearance: none;
+    box-sizing:border-box;
+}
+
+body{
+    /* background-color: black;
+    color:white; */
+    font-family: 'Gowun Batang', serif;
+    font-family: 'Nunito', sans-serif;
+    font-size:14px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+form {
+  width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {collection,addDoc,getDocs, doc, onSnapshot,query, orderBy} from 'firebase/firestore';
+import {collection, onSnapshot,query, orderBy} from 'firebase/firestore';
 import { dbService } from '../fbase';
-import { storageService } from '../fbase';
 import Kweet from '../components/Kweet';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import {v4} from 'uuid';
+import KweetFactory from '../components/KweetFactory';
 
 const Home=({userObj})=>{
-    const [kweet,setKweet]=useState("");
     const [kweets,setKweets]=useState([]);
-
     const postsCollectionRef=collection(dbService,"kweets");
     
     useEffect(()=>{
@@ -20,57 +16,10 @@ const Home=({userObj})=>{
         
     },[]);
 
-    //이미지 관련
-    const [attachment,setAttachment]=useState("");
-    const imageListRef=ref(storageService,"/images");
-
-    const onSubmit=async(e)=>{
-        e.preventDefault();
-        
-        let attachmentUrl="";
-        if(attachment!=="") {
-            const imageRef=ref(storageService,`images/${attachment.name+v4()}`);
-            await uploadBytes(imageRef,attachment);
-            attachmentUrl=await getDownloadURL(imageRef);
-        };
-
-        try{
-            await addDoc(postsCollectionRef,{
-                text:kweet,
-                createdAt:Date.now(),
-                creatorId:userObj.uid,
-                attachmentUrl,
-            });
-        } catch(error){
-            alert(error);
-        }
-        setKweet("");
-        setAttachment("");
-
-    }
-
-
     return(
-        <div>
-            <p>Kweet</p>
-            <form onSubmit={onSubmit}>
-                <input 
-                    type="text"
-                    placeholder="what's on ur mind?"
-                    maxLength={120}
-                    value={kweet}
-                    onChange={(e)=>{setKweet(e.target.value)}}   
-                />
-                <input 
-                    type="submit"
-                    value="Kweet"  
-                />
-                <input 
-                    type="file"
-                    onChange={(e)=>{setAttachment(e.target.files[0])}}
-                />
-            </form>
-            <div>
+        <div className="container">
+            <KweetFactory userObj={userObj}/>
+            <div style={{marginTop:30}}>
                 {kweets.map((kweet)=>(
                     <Kweet 
                         key={kweet.id}
