@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {collection, onSnapshot,query, orderBy} from 'firebase/firestore';
 import { dbService } from '../fbase';
-import Kweet from '../components/Kweet';
-import KweetFactory from '../components/KweetFactory';
-
+import Kweet from '../components/kweet/Kweet';
+import KweetFactory from '../components/kweet_factory/KweetFactory';
 const Home=({userObj})=>{
     const [kweets,setKweets]=useState([]);
     const postsCollectionRef=collection(dbService,"kweets");

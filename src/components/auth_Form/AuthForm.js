@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { authService } from '../fbase';
+import { authService } from '../../fbase';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth';
 
 const AuthForm=()=>{

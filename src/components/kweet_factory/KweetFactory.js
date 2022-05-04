@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from "react";
-import {storageService,dbService} from '../fbase';
+import {storageService,dbService} from '../../fbase';
 import {addDoc,collection} from 'firebase/firestore'
 import {ref,uploadBytes,getDownloadURL} from 'firebase/storage';
 import {v4} from 'uuid';
+import styles from './KweetFactory.module.css';
 
 const KweetFactory=({userObj})=>{
     const [kweet,setKweet]=useState("");
@@ -35,15 +36,15 @@ const KweetFactory=({userObj})=>{
 
     }
     return(
-        <form onSubmit={onSubmit} className="factoryForm">
-            <div className="factoryInput__container">                
-                <input 
+        <form onSubmit={onSubmit} className={styles.factoryForm}>
+            <div className={styles.factoryInput__container}>            
+                <input  
                     type="text"
                     placeholder="what's on ur mind?"
                     maxLength={120}
                     value={kweet}
                     onChange={(e)=>{setKweet(e.target.value)}}   
-                    className="factoryInput__input"
+                    className={styles.factoryInput__input}
                 />
                 <input 
                     type="submit"

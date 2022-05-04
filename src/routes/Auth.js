@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {signInWithPopup} from 'firebase/auth'
 import { authService,googleProvider,githubProvider } from '../fbase';
-import AuthForm from '../components/AuthForm';
+import AuthForm from '../components/auth_Form/AuthForm';
 
 const Auth=()=>{
 
