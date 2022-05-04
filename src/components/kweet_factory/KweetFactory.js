@@ -40,20 +40,31 @@ const KweetFactory=({userObj})=>{
             <div className={styles.factoryInput__container}>            
                 <input  
                     type="text"
-                    placeholder="what's on ur mind?"
+                    placeholder="kweet everything you want"
                     maxLength={120}
                     value={kweet}
                     onChange={(e)=>{setKweet(e.target.value)}}   
                     className={styles.factoryInput__input}
                 />
+                <button className={styles.submit__btn} type="submit">
+                    <i class="fas fa-pen"></i>
+                </button>
+                <label htmlFor="file-upload" className={styles.choose__file}>
+                    <i className="fas fa-image"></i>
+                </label>
                 <input 
-                    type="submit"
-                    value="Kweet"  
+                    id="file-upload" 
+                    type="file" 
+                    onChange={(e)=>{setAttachment(e.target.files[0])}}
+                    style={{display:"none"}}
                 />
-                <input 
+                
+                
+                {/* <input
+                    className={styles.choose__file}
                     type="file"
                     onChange={(e)=>{setAttachment(e.target.files[0])}}
-                />
+                /> */}
             </div>
         </form>
     )

@@ -16,8 +16,7 @@ const AppRouter=({isLoggedIn,userObj,refreshUser})=>{
                             <Link to="/" style={{ marginRight: 30 }}>Home</Link>
                         </li>
                         <li>
-                            <Link to="/profile">{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile</Link>
-                            <i class="fas fa-cog"></i>
+                            <Link to="/profile"> <i class="fas fa-cog"></i></Link>
                         </li>
                     </ul>
                 )}

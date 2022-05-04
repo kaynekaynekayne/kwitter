@@ -48,7 +48,8 @@ const Profile=({userObj,refreshUser})=>{
     },[])
 
     return(
-        <>
+        <div className="container">
+            <p>{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile</p>
             <form onSubmit={onSubmit}>
                 <input 
                     onChange={(e)=>{setNewDisplayName(e.target.value)}} 
@@ -62,7 +63,7 @@ const Profile=({userObj,refreshUser})=>{
             <div>
                 
             </div>
-        </>
+        </div>
     )
 }
 
