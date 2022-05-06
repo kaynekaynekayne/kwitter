@@ -15,6 +15,8 @@ const KweetFactory=({userObj})=>{
         e.preventDefault();
         
         let attachmentUrl="";
+        let date=new Date();
+
         if(attachment!=="") {
             const imageRef=ref(storageService,`images/${attachment.name+v4()}`);
             await uploadBytes(imageRef,attachment);
@@ -25,6 +27,13 @@ const KweetFactory=({userObj})=>{
             await addDoc(postsCollectionRef,{
                 text:kweet,
                 createdAt:Date.now(),
+                created:{
+                    year:date.getFullYear(),
+                    month:date.getMonth()+1,
+                    date:date.getDate(),
+                    hour:date.getHours(),
+                    min:date.getMinutes(),
+                },
                 creatorId:userObj.uid,
                 attachmentUrl,
             });
@@ -43,14 +52,12 @@ const KweetFactory=({userObj})=>{
                     placeholder="kweet everything you want"
                     maxLength={120}
                     value={kweet}
+                    autoFocus
                     onChange={(e)=>{setKweet(e.target.value)}}   
                     className={styles.factoryInput__input}
                 />
-                <button className={styles.submit__btn} type="submit">
-                    <i class="fas fa-pen"></i>
-                </button>
                 <label htmlFor="file-upload" className={styles.choose__file}>
-                    <i className="fas fa-image"></i>
+                    <i className="fas fa-image" id={styles.image__upload}></i>
                 </label>
                 <input 
                     id="file-upload" 
@@ -58,13 +65,10 @@ const KweetFactory=({userObj})=>{
                     onChange={(e)=>{setAttachment(e.target.files[0])}}
                     style={{display:"none"}}
                 />
+                <button className={styles.submit__btn} type="submit">
+                    <i className="fas fa-pen" id={styles.text__upload}></i>
+                </button>
                 
-                
-                {/* <input
-                    className={styles.choose__file}
-                    type="file"
-                    onChange={(e)=>{setAttachment(e.target.files[0])}}
-                /> */}
             </div>
         </form>
     )

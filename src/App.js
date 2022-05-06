@@ -1,7 +1,8 @@
 import React,{useEffect, useState} from 'react';
-import AppRouter from './router/Router';
-import {authService,dbService} from '../fbase';
+import AppRouter from './components/router/Router';
+import {authService,dbService} from './fbase';
 import {onAuthStateChanged, updateProfile} from 'firebase/auth'
+
 
 function App() {
   const [init,setInit]=useState(false);
@@ -9,20 +10,25 @@ function App() {
   const [userObj,setUserObj]=useState(null);
   
   useEffect(()=>{
+
     onAuthStateChanged(authService,(user)=>{
-      //user->로그인한 유저
       if(user){
         setIsLoggedIn(true);
-        //setUserObj(user); 밑에 수정 전
-        setUserObj({
-          displayName:user.displayName,
-          uid:user.uid,
-          updateProfile:()=>updateProfile(user,{displayName:user.displayName})
-        });
+        console.log(user)
         if(user.displayName===null){
-          updateProfile(userObj,{
+          setUserObj({
             displayName:"anonymous",
+            uid:user.uid,
+            email:user.email,
+            updateProfile:()=>updateProfile(user,{displayName:user.displayName})
           })
+        } else{
+          setUserObj({
+            displayName:user.displayName,
+            uid:user.uid,
+            email:user.email,
+            updateProfile:()=>updateProfile(user,{displayName:user.displayName})
+          });
         }
       } else{
         setIsLoggedIn(false);
@@ -48,7 +54,9 @@ function App() {
         userObj={userObj}
         isLoggedIn={isLoggedIn}
         refreshUser={refreshUser}
-        /> : "Initializing.."
+        /> : <div>
+        <i className="fas fa-kiwi-bird"></i>
+      </div>
       }
     </div>
   );

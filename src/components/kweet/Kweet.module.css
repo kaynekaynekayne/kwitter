@@ -1,0 +1,37 @@
+.kweet {
+    margin-bottom: 20px;
+    background-color: rgb(249, 247, 247);
+    max-width: 320px;
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.btns{
+    position:absolute;
+    top:4px;
+    right:4px;
+}
+.delete__btn,.edit__btn{
+    color:rgb(152, 152, 152);
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.update__box{
+    position:absolute;
+    right:8px;
+    bottom:4px;
+    font-size:12px;
+    cursor:pointer;
+    color:rgb(125, 132, 129);
+}
+
+.form__btn{
+    margin-right:7px;
+}

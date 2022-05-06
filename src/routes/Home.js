@@ -6,7 +6,7 @@ import KweetFactory from '../components/kweet_factory/KweetFactory';
 const Home=({userObj})=>{
     const [kweets,setKweets]=useState([]);
     const postsCollectionRef=collection(dbService,"kweets");
-    
+
     useEffect(()=>{
         const q=query(postsCollectionRef,orderBy("createdAt","desc"));
         onSnapshot(q,(snapshot)=>{
@@ -20,8 +20,9 @@ const Home=({userObj})=>{
             <KweetFactory userObj={userObj}/>
             <div style={{marginTop:30}}>
                 {kweets.map((kweet)=>(
-                    <Kweet 
+                    <Kweet
                         key={kweet.id}
+                        userObj={userObj} 
                         kweet={kweet}
                         isOwner={kweet.creatorId===userObj.uid}
                     />

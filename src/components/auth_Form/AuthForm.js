@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { authService } from '../../fbase';
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth';
+import styles from './AuthForm.module.css';
 
 const AuthForm=()=>{
 
@@ -28,7 +29,7 @@ const AuthForm=()=>{
         }
     }
     return(
-        <>
+        <div className={styles.authform__container}>
             <form onSubmit={onSubmit}>
                 <input
                     // name="email"
@@ -49,7 +50,6 @@ const AuthForm=()=>{
                 <input
                     type="submit" 
                     value={newAccount ? "Create Account" : "Log In"} 
-                    placeholder="Password" 
                     required
                 />
                 {error}
@@ -57,7 +57,7 @@ const AuthForm=()=>{
             <span onClick={toggleAccount}>
                 {newAccount ? "Log in." : "Create account."}
             </span>
-        </>
+        </div>
     )
 }
 export default AuthForm;

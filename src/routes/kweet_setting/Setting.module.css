@@ -1,0 +1,47 @@
+
+.setting__container{
+    text-align: center;
+    padding:20px;
+}
+
+.setting__title{
+    font-weight:600;
+}
+
+.setting__form{
+    margin-bottom:50px;
+}
+
+.setting__input {
+    height: 30px;
+    padding: 0px 20px;
+    border: 1px solid #8a8d7e;
+    border-radius:15px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right:10px;
+}
+
+.setting__submit{
+    cursor:pointer;
+}
+
+.setting__list{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.setting__list:hover{
+    text-decoration: underline;
+}
+.setting__logout{
+    width:70px;
+    margin:0 auto;
+    padding:7px;
+    border-radius: 14px;
+    background:none;
+    background-color: rgb(120, 126, 119);
+    border:none;
+    color:white;
+    cursor: pointer;
+}

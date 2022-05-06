@@ -5,3 +5,10 @@
     padding:0;
     color:rgb(53, 51, 51);
 }
+
+#setting__icon{
+    transition: transform 0.8s ease;
+}
+#setting__icon:hover{
+    transform: rotate( 75deg );
+}

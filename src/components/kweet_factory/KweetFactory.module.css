@@ -31,12 +31,25 @@
     background-color:transparent;
     border:none;
     cursor:pointer;
-    margin:0 4px;
+    margin-left:3px;
 }
 
 .choose__file{
     cursor:pointer;
     color:#8d8c73;
-
-
+    padding-left:9px;
 }
+
+#image__upload,#text__upload{
+    transition:all 0.2s ease;
+}
+
+#image__upload:hover{
+    color:rgb(178, 208, 86);
+}
+
+#text__upload:hover{
+    color:rgb(178, 208, 86);
+}
+
+
