@@ -61,7 +61,9 @@ const Kweet=({kweet,isOwner,userObj})=>{
                 </>
             ) : (
                 <>
-                    <p>{kweet.text}</p>
+                    <div className={styles.title__box}>
+                        <p className={styles.kweet__title}>{kweet.text}</p>
+                    </div>
                     {kweet.attachmentUrl && <img src={kweet.attachmentUrl} />}
                     {isOwner && (
                         <div className={styles.btns}>

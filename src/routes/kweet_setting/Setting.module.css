@@ -27,8 +27,9 @@
 }
 
 .setting__list{
+    color:#5f715a;
     cursor:pointer;
-    font-size:14px;
+    font-size:13px;
 }
 
 .setting__list:hover{
@@ -44,4 +45,25 @@
     border:none;
     color:white;
     cursor: pointer;
+}
+
+.post__list{
+    width:280px;
+    margin:35px auto;
+    text-align: left;
+}
+
+.post__title{
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+/* .post__title:hover{
+    word-break:break-all;
+} */
+
+.post__date{
+    color:#8a8d7e;
+    font-size:12px;
 }

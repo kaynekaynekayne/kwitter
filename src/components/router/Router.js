@@ -12,10 +12,10 @@ const AppRouter=({isLoggedIn,userObj,refreshUser})=>{
                 {isLoggedIn && (
                     <ul className={styles.container}>
                         <li>
-                            <Link to="/" style={{ marginRight: 30 }}>Home</Link>
+                            <Link to="/" style={{ marginRight: 40 }}>Home</Link>
                         </li>
                         <li>
-                            <Link to="/setting"> <i id={styles.setting__icon} className="fas fa-cog"></i></Link>
+                            <Link to="/setting" > <i id={styles.setting__icon} className="fas fa-cog"></i></Link>
                         </li>
                     </ul>
                 )}

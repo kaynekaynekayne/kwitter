@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {signOut, updateProfile} from 'firebase/auth'
 import { authService, dbService } from '../../fbase';
 import { useNavigate } from 'react-router-dom';
-import { collection,getDocs,onSnapshot,orderBy,query,where } from 'firebase/firestore';
+import { collection,getDocs,onSnapshot,orderBy,query,QuerySnapshot,where } from 'firebase/firestore';
 import styles from './Setting.module.css';
 
 const Setting=({userObj,refreshUser})=>{
@@ -39,10 +39,27 @@ const Setting=({userObj,refreshUser})=>{
             refreshUser();
         }
     }
+
+    const handleDate=(time)=>{
+        if(time<10){
+            return `0${time}`
+        } else{
+            return time;
+        }
+    }
+
+    const handleLongText=(posted,e)=>{
+        if(posted.text.length>20){
+            console.log(e.target)
+            //useState 써야 하나???
+        } else{
+            console.log("안 넘음")
+        }
+    }
     
     return(
         <div className={styles.setting__container}>
-            <p className={styles.setting__title}>{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile 💜</p>
+            <p className={styles.setting__title}>{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile 💚</p>
          
             <form className={styles.setting__form} onSubmit={onSubmit}>
                 <input
@@ -56,19 +73,18 @@ const Setting=({userObj,refreshUser})=>{
                 <input className={styles.setting__submit} type="submit" value="Update Nickname"/>
             </form>
 
-            <p className={styles.setting__list} onClick={getMyKweets}>글목록</p>
+            <p className={styles.setting__list} onClick={getMyKweets}>작성글</p>
             {toggleSelect && postedLists.map((posted)=>
-                <div key={posted.createdAt}>
-                    <p>{posted.text}</p>
-                    <p>{`${posted.created.year}.${posted.created.month}.${posted.created.date}
-                        ${posted.created.hour} :
-                        ${posted.created.min}
-                    `}</p>
+                <div className={styles.post__list} key={posted.createdAt}>
+                    <p className={styles.post__title} onClick={(e)=>handleLongText(posted,e)}>{posted.text}</p>
+                    <span className={styles.post__date}>{`${posted.created.year}.${handleDate(posted.created.month)}.${handleDate(posted.created.date)}
+                        ${handleDate(posted.created.hour)}:${handleDate(posted.created.min)}
+                    `}</span>
                 </div>
             )}
 
             <button className={styles.setting__logout} onClick={logOutClick}>
-                EXIT
+                Log Out
             </button>
             <div>
                 
