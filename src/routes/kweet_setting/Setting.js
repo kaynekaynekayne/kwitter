@@ -69,7 +69,6 @@ const Setting=({userObj,refreshUser})=>{
     return(
         <div className={styles.setting__container}>
             <p className={styles.setting__title}>{userObj.displayName}{userObj.displayName.endsWith('s') ? "'" : "'s"} profile 💚</p>
-         
             <form className={styles.setting__form} onSubmit={onSubmit}>
                 <input
                     className={styles.setting__input}
@@ -92,7 +91,7 @@ const Setting=({userObj,refreshUser})=>{
                 </div>
             )}
             <button className={styles.setting__logout} onClick={logOutClick}>
-                <i class="fas fa-sign-out-alt"></i>
+                <i className="fas fa-sign-out-alt"></i>
             </button>
 
         </div>

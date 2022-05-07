@@ -47,9 +47,10 @@
 }
 
 .preview__text{
-    color:#798e89;
+    color:#3d3d3d;
     font-size:12px;
     text-align: right;
+    
 }
 
 #image__upload,#text__upload{
@@ -64,3 +65,7 @@
     color:rgb(178, 208, 86);
 }
 
+#undo{
+    color:#515151;
+    cursor: pointer;
+}

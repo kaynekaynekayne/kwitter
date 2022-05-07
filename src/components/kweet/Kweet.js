@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import {collection, deleteDoc, doc, updateDoc} from 'firebase/firestore';
 import {deleteObject, ref} from 'firebase/storage';
-import { dbService,storageService } from '../../fbase';
+import { dbService,storageService,authService } from '../../fbase';
 import styles from './Kweet.module.css';
 
 const Kweet=({kweet,isOwner,userObj})=>{
-    
+    console.log(authService.currentUser.uid)
     const [editing,setEditing]=useState(false);
     const [newKweet,setNewKweet]=useState(kweet.text);
 

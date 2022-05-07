@@ -56,10 +56,8 @@ const KweetFactory=({userObj})=>{
         }
         setKweet("");
         setAttachment("");
-
     }
 
-    
     return(
     <>
         <form onSubmit={onSubmit} className={styles.factoryForm}>
@@ -90,7 +88,8 @@ const KweetFactory=({userObj})=>{
         {attachment &&         
             <div className={styles.preview}>
                 <img src={previewImg} height="auto" style={{maxWidth:'70px'}}/>
-                <span className={styles.preview__text}>{attachment.name}</span>
+                <span className={styles.preview__text}>{attachment.name} 
+                </span>
             </div>
         }
     </>
