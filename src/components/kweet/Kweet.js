@@ -11,7 +11,7 @@ const Kweet=({kweet,isOwner,userObj})=>{
 
     const deleteKweet=async(id)=>{
         const docRef=doc(dbService,"kweets",id);
-        const ok=window.confirm("Are you sure you want to delete this kweet?");
+        const ok=window.confirm("작성글을 삭제하시겠습니까?");
         
         const storageRef=ref(storageService,kweet.attachmentUrl);
 
@@ -45,13 +45,14 @@ const Kweet=({kweet,isOwner,userObj})=>{
             {editing ? (
                 <>
                     <form onSubmit={onSubmit}>
-                        <input
+                        <textarea
                             onChange={(e)=>setNewKweet(e.target.value)}
                             value={newKweet} 
                             type="text"
                             required
-                            className="formInput"
-                            autoFocus    
+                            maxLength={120}
+                            className={styles.kweet__textarea}
+                            autoFocus
                         />
                         <div className={styles.update__box}>
                             <input type="submit" value="확인" className={styles.form__btn}/>

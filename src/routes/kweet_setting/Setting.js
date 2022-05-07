@@ -14,10 +14,16 @@ const Setting=({userObj,refreshUser})=>{
     let navigate=useNavigate();
     
     const logOutClick=()=>{
-        signOut(authService)
-        .then(()=>{
-            navigate("/")
-        })
+        const ok=window.confirm("로그아웃 하시겠습니까?");
+        
+        if(ok){            
+            signOut(authService)
+            .then(()=>{
+                navigate("/")
+            })
+        } else{
+            return;
+        }
     }
 
     const getMyKweets=async()=>{
@@ -52,6 +58,9 @@ const Setting=({userObj,refreshUser})=>{
         if(posted.text.length>20){
             console.log(e.target)
             //useState 써야 하나???
+            //const [longtext,setlongtext]=useState(null);
+            //setLongtext(<div>sdfsfd</div>)
+            //{longtext}이거 안되나???
         } else{
             console.log("안 넘음")
         }
@@ -76,19 +85,16 @@ const Setting=({userObj,refreshUser})=>{
             <p className={styles.setting__list} onClick={getMyKweets}>작성글</p>
             {toggleSelect && postedLists.map((posted)=>
                 <div className={styles.post__list} key={posted.createdAt}>
-                    <p className={styles.post__title} onClick={(e)=>handleLongText(posted,e)}>{posted.text}</p>
+                    <p style={{wordBreak:'break-all'}} className={styles.post__title} onClick={(e)=>handleLongText(posted,e)}>{posted.text}</p>
                     <span className={styles.post__date}>{`${posted.created.year}.${handleDate(posted.created.month)}.${handleDate(posted.created.date)}
                         ${handleDate(posted.created.hour)}:${handleDate(posted.created.min)}
-                    `}</span>
+                        `}</span>
                 </div>
             )}
-
             <button className={styles.setting__logout} onClick={logOutClick}>
-                Log Out
+                <i class="fas fa-sign-out-alt"></i>
             </button>
-            <div>
-                
-            </div>
+
         </div>
     )
 }

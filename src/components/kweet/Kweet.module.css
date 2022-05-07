@@ -44,3 +44,19 @@
 .kweet__title{
     word-break:break-all;
 }
+
+.kweet__textarea{
+    width:100%;
+    height:100px;
+    resize:none;
+    background-color:transparent;
+    border:none;
+    font-family: 'Gowun Batang', serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+.kweet__textarea:focus{
+    background-color:transparent;
+    outline:none;
+    
+}

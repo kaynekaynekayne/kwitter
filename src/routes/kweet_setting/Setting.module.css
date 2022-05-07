@@ -9,7 +9,7 @@
 }
 
 .setting__form{
-    margin-bottom:50px;
+    margin-bottom:40px;
 }
 
 .setting__input {
@@ -36,12 +36,12 @@
     text-decoration: underline;
 }
 .setting__logout{
-    width:70px;
-    margin:0 auto;
+    width:50px;
+    margin:50px auto 20px;
     padding:7px;
     border-radius: 14px;
     background:none;
-    background-color: rgb(120, 126, 119);
+    background-color: rgb(65, 64, 64);
     border:none;
     color:white;
     cursor: pointer;
