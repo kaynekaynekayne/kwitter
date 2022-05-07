@@ -12,7 +12,7 @@
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
@@ -40,6 +40,18 @@
     padding-left:9px;
 }
 
+.preview{
+    display: flex;
+    justify-content: space-between;
+    padding:5px 20px;
+}
+
+.preview__text{
+    color:#798e89;
+    font-size:12px;
+    text-align: right;
+}
+
 #image__upload,#text__upload{
     transition:all 0.2s ease;
 }
@@ -51,5 +63,4 @@
 #text__upload:hover{
     color:rgb(178, 208, 86);
 }
-
 

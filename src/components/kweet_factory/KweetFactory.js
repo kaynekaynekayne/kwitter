@@ -8,9 +8,23 @@ import styles from './KweetFactory.module.css';
 const KweetFactory=({userObj})=>{
     const [kweet,setKweet]=useState("");
     const [attachment,setAttachment]=useState("");
+    const [previewImg,setPreviewImg]=useState(null);
+    
     const imageListRef=ref(storageService,"/images");
     const postsCollectionRef=collection(dbService,"kweets");
     
+    useEffect(()=>{
+        if(!attachment){
+            setPreviewImg(undefined);
+            return;
+        }
+
+        const objectUrl=URL.createObjectURL(attachment);
+        setPreviewImg(objectUrl);
+
+        return ()=>URL.revokeObjectURL(objectUrl)
+    },[attachment])
+
     const onSubmit=async(e)=>{
         e.preventDefault();
         
@@ -44,7 +58,10 @@ const KweetFactory=({userObj})=>{
         setAttachment("");
 
     }
+
+    
     return(
+    <>
         <form onSubmit={onSubmit} className={styles.factoryForm}>
             <div className={styles.factoryInput__container}>            
                 <input  
@@ -62,15 +79,23 @@ const KweetFactory=({userObj})=>{
                 <input 
                     id="file-upload" 
                     type="file" 
-                    onChange={(e)=>{setAttachment(e.target.files[0])}}
+                    onChange={(e)=>setAttachment(e.target.files[0])}
                     style={{display:"none"}}
                 />
                 <button className={styles.submit__btn} type="submit">
                     <i className="fas fa-pen" id={styles.text__upload}></i>
                 </button>
-                
             </div>
         </form>
+        {attachment &&         
+            <div className={styles.preview}>
+                <img src={previewImg} height="auto" style={{maxWidth:'70px'}}/>
+                <span className={styles.preview__text}>{attachment.name}</span>
+            </div>
+        }
+    </>
+
+
     )
 }
 export default KweetFactory;
