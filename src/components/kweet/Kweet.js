@@ -5,7 +5,7 @@ import { dbService,storageService,authService } from '../../fbase';
 import styles from './Kweet.module.css';
 
 const Kweet=({kweet,isOwner,userObj})=>{
-    console.log(authService.currentUser.uid)
+    
     const [editing,setEditing]=useState(false);
     const [newKweet,setNewKweet]=useState(kweet.text);
 
@@ -66,6 +66,8 @@ const Kweet=({kweet,isOwner,userObj})=>{
                         <p className={styles.kweet__title}>{kweet.text}</p>
                     </div>
                     {kweet.attachmentUrl && <img src={kweet.attachmentUrl} />}
+                    <div className={styles.bottom__box}>
+                    <p className={styles.user__nickname}>@{kweet.nickName}</p>
                     {isOwner && (
                         <div className={styles.btns}>
                             <button className={styles.edit__btn} onClick={toggleEditing}>
@@ -76,7 +78,8 @@ const Kweet=({kweet,isOwner,userObj})=>{
                             </button>
                         </div>
                     )}
-                    <p>@{userObj.displayName}</p>
+                    </div>
+                   
                 </>
             )
         

@@ -1,11 +1,12 @@
 
 .setting__container{
     text-align: center;
-    padding:20px;
 }
 
 .setting__title{
     font-weight:600;
+    border-top:1px solid rgb(236, 236, 236);
+    padding-top:20px;
 }
 
 .setting__form{

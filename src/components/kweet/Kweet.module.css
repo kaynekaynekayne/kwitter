@@ -1,6 +1,6 @@
 .kweet {
     margin-bottom: 20px;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(243, 240, 240);
     max-width: 320px;
     padding: 20px;
     border-radius: 12px;
@@ -11,9 +11,7 @@
 }
 
 .btns{
-    position:absolute;
-    bottom:6px;
-    right:4px;
+    line-height:47.2px;
 }
 
 .delete__btn,.edit__btn{
@@ -22,6 +20,7 @@
     background:none;
     cursor:pointer;
     font-size:12px;
+    padding:0 3px;
 }
 
 .update__box{
@@ -43,6 +42,7 @@
 
 .kweet__title{
     word-break:break-all;
+    margin:23px 0;
 }
 
 .kweet__textarea{
@@ -59,4 +59,16 @@
     background-color:transparent;
     outline:none;
     
+}
+
+.bottom__box{
+    display:flex;
+    justify-content: space-between;
+}
+
+.user__nickname{
+    font-size:12px;
+    color:gray;
+    margin:0;
+    line-height:47.2px;
 }

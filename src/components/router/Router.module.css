@@ -1,7 +1,6 @@
 .container{
     display: flex;
     justify-content: space-around;
-    margin: 50;
     padding:0;
     color:rgb(53, 51, 51);
 }

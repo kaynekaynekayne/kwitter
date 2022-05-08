@@ -49,6 +49,7 @@ const KweetFactory=({userObj})=>{
                     min:date.getMinutes(),
                 },
                 creatorId:userObj.uid,
+                nickName:userObj.displayName,
                 attachmentUrl,
             });
         } catch(error){
