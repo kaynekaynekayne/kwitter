@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import {collection, deleteDoc, doc, updateDoc} from 'firebase/firestore';
 import {deleteObject, ref} from 'firebase/storage';
 import { dbService,storageService,authService } from '../../fbase';
@@ -14,7 +14,7 @@ const Kweet=({kweet,isOwner,userObj})=>{
         const ok=window.confirm("작성글을 삭제하시겠습니까?");
         
         const storageRef=ref(storageService,kweet.attachmentUrl);
-
+        
         if(ok){
             await deleteDoc(docRef);
             await deleteObject(storageRef);
@@ -41,6 +41,7 @@ const Kweet=({kweet,isOwner,userObj})=>{
     }
 
     return(
+        
         <div className={styles.kweet}>
             {editing ? (
                 <>
@@ -67,7 +68,11 @@ const Kweet=({kweet,isOwner,userObj})=>{
                     </div>
                     {kweet.attachmentUrl && <img src={kweet.attachmentUrl} />}
                     <div className={styles.bottom__box}>
-                    <p className={styles.user__nickname}>@{kweet.nickName}</p>
+        
+                    <p className={styles.user__nickname}>
+                       @{kweet.nickName}
+                    </p>
+
                     {isOwner && (
                         <div className={styles.btns}>
                             <button className={styles.edit__btn} onClick={toggleEditing}>

@@ -30,22 +30,23 @@ const AuthForm=()=>{
     }
     return(
         <div className={styles.authform__container}>
-            <form onSubmit={onSubmit}>
+            <p className={styles.kwitter}>Kwitter</p>
+            <form className={styles.form__container} onSubmit={onSubmit}>
                 <input
-                    // name="email"
                     type="email" 
                     placeholder="Email" 
                     required
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
+                    className={styles.auth__input}
                 />
                 <input
-                    // name="password"
                     type="password" 
                     placeholder="Password" 
                     required
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
+                    className={styles.auth__input}
                 />
                 <input
                     type="submit" 

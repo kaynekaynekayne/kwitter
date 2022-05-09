@@ -29,12 +29,12 @@
 
 .choose__file{
     cursor:pointer;
-    color:#6e966e;
+    color:#92b292;
     padding-left:9px;
 }
 
 .submit__btn{
-    color:#526053;
+    color:#7aa57d;
     background-color:transparent;
     border:none;
     cursor:pointer;
@@ -60,11 +60,12 @@
 }
 
 #image__upload:hover{
-    color:rgb(178, 208, 86);
+    color:rgb(86, 100, 46);
 }
 
 #text__upload:hover{
-    color:rgb(178, 208, 86);
+    color:rgb(86, 100, 46);
+
     
 }
 

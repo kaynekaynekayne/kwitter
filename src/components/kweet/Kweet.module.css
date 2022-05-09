@@ -64,6 +64,7 @@
 .bottom__box{
     display:flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 .user__nickname{

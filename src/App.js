@@ -39,7 +39,6 @@ function App() {
 
   const refreshUser=()=>{
     const user=authService.currentUser;
-    console.log(user);
     setUserObj({
       displayName:user.displayName,
       uid:user.uid,
@@ -54,8 +53,8 @@ function App() {
         userObj={userObj}
         isLoggedIn={isLoggedIn}
         refreshUser={refreshUser}
-        /> : <div>
-        <i className="fas fa-kiwi-bird"></i>
+        /> : <div style={{display:'flex',justifyContent:'center',height:'100vh',alignItems:'center'}}>
+        <i style={{fontSize:'5rem',color:'green'}} className="fas fa-kiwi-bird"></i>
       </div>
       }
     </div>
