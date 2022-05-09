@@ -44,6 +44,7 @@ const AuthForm=()=>{
                     type="password" 
                     placeholder="Password" 
                     required
+                    maxLength={20}
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                     className={styles.auth__input}
@@ -51,12 +52,13 @@ const AuthForm=()=>{
                 <input
                     type="submit" 
                     value={newAccount ? "Create Account" : "Log In"} 
+                    className={styles.auth__btn}
                     required
                 />
                 {error}
             </form>
-            <span onClick={toggleAccount}>
-                {newAccount ? "Log in." : "Create account."}
+            <span onClick={toggleAccount} className={styles.toggle__btn}>
+                {newAccount ? "Log in 👈" : "Create account 👈"}
             </span>
         </div>
     )

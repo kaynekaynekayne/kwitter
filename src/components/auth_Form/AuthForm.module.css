@@ -16,7 +16,25 @@
 }
 
 .auth__input{
-    border:1px solid black;
+    border:1px solid rgb(189, 209, 138);
     border-radius:4px;
     margin-bottom:5px;
+    padding:2px;
+}
+
+.auth__btn{
+   color:aliceblue;
+   background-color: rgb(183, 202, 135);
+   cursor:pointer;
+   border-radius:4px;
+   margin-bottom:10px;
+   padding:3px;
+}
+
+.toggle__btn{
+    cursor:pointer;
+}
+
+.toggle__btn:hover{
+    color:rgb(143, 157, 109);
 }

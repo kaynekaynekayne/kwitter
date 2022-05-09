@@ -1,10 +1,21 @@
 
 .auth__container{
+    display:flex;
+    flex-direction: column;
     padding-top:50px;
-    text-align: center;
+    width:250px;
+    margin:0 auto;
 }
 .login__google,.login__github{
     border:none;
-    background-color: transparent;
     cursor:pointer;
+    background-color: rgb(217, 233, 204);
+    border-radius:4px;
+    margin-bottom:5px;
+    padding:5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.login__google{
+    margin-bottom:10px;
 }

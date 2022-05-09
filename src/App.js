@@ -54,7 +54,9 @@ function App() {
         isLoggedIn={isLoggedIn}
         refreshUser={refreshUser}
         /> : <div style={{display:'flex',justifyContent:'center',height:'100vh',alignItems:'center'}}>
-        <i style={{fontSize:'5rem',color:'green'}} className="fas fa-kiwi-bird"></i>
+        <i style={{fontSize:'5rem',color:'rgb(189, 209, 138)'}} 
+          className="fas fa-kiwi-bird">
+        </i>
       </div>
       }
     </div>

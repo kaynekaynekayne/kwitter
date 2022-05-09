@@ -25,15 +25,15 @@ const Auth=()=>{
                     className={styles.login__google}
                     name="google"
                     onClick={onSocialClick}>
-                    <i className="fab fa-google"></i>
-                    Sign in with Google
+                    <i className="fab fa-google" style={{color:'firebrick'}}></i>
+                    <span style={{marginLeft:'5px'}}>Sign in with Google</span>
                 </button>
                 <button 
                     className={styles.login__github}
                     name="github"
                     onClick={onSocialClick}>
-                    <i className="fab fa-github"></i>
-                    Sign in with Github
+                    <i className="fab fa-github" style={{color:"purple"}}></i>
+                    <span style={{marginLeft:'5px'}}>Sign in with Github</span>
                 </button>
             </div>
         </div>
