@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom";
-import Home from "../../routes/Home";
-import Auth from "../../routes/kweet_auth/Auth";
-import Setting from "../../routes/kweet_setting/Setting";
+import Home from "../../routes/kweet_home/home";
+import Auth from "../../routes/kweet_auth/auth";
+import Setting from "../../routes/kweet_setting/setting";
 import styles from './Router.module.css';
 
 const AppRouter=({isLoggedIn,userObj,refreshUser})=>{

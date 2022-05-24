@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import {collection, deleteDoc, doc, updateDoc} from 'firebase/firestore';
 import {deleteObject, ref} from 'firebase/storage';
 import { dbService,storageService,authService } from '../../fbase';
-import styles from './Kweet.module.css';
+import styles from './kweet.module.css';
 
 const Kweet=({kweet,isOwner,userObj})=>{
     

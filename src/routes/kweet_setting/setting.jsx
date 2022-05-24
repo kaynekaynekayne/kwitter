@@ -3,7 +3,7 @@ import {signOut, updateProfile} from 'firebase/auth'
 import { authService, dbService } from '../../fbase';
 import { useNavigate } from 'react-router-dom';
 import { collection,getDocs,onSnapshot,orderBy,query,QuerySnapshot,where, } from 'firebase/firestore';
-import styles from './Setting.module.css';
+import styles from './setting.module.css';
 
 const Setting=({userObj,refreshUser})=>{
     

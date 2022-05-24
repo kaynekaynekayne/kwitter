@@ -60,10 +60,6 @@
     text-overflow: ellipsis;
 }
 
-/* .post__title:hover{
-    word-break:break-all;
-} */
-
 .post__date{
     color:#8a8d7e;
     font-size:12px;

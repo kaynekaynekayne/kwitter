@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {collection, onSnapshot,query, orderBy} from 'firebase/firestore';
-import { dbService } from '../fbase';
-import Kweet from '../components/kweet/Kweet';
-import KweetFactory from '../components/kweet_factory/KweetFactory';
+import { dbService } from '../../fbase';
+import Kweet from '../../components/kweet/kweet';
+import KweetFactory from '../../components/kweet_factory/kweetFactory';
+import styles from './home.module.css';
+
 const Home=({userObj})=>{
     const [kweets,setKweets]=useState([]);
     const postsCollectionRef=collection(dbService,"kweets");
@@ -18,7 +20,7 @@ const Home=({userObj})=>{
     return(
         <div className="container">
             <KweetFactory userObj={userObj}/>
-            <div style={{marginTop:30}}>
+            <div className={styles.home}>
                 {kweets.map((kweet)=>(
                     <Kweet
                         key={kweet.id}

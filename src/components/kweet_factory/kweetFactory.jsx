@@ -3,7 +3,7 @@ import {storageService,dbService} from '../../fbase';
 import {addDoc,collection} from 'firebase/firestore'
 import {ref,uploadBytes,getDownloadURL} from 'firebase/storage';
 import {v4} from 'uuid';
-import styles from './KweetFactory.module.css';
+import styles from './kweetFactory.module.css';
 
 const KweetFactory=({userObj})=>{
     const [kweet,setKweet]=useState("");

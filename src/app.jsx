@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import AppRouter from './components/router/Router';
 import {authService,dbService} from './fbase';
 import {onAuthStateChanged, updateProfile} from 'firebase/auth'
-
+import styles from './app.module.css';
 
 function App() {
   const [init,setInit]=useState(false);
@@ -53,8 +53,8 @@ function App() {
         userObj={userObj}
         isLoggedIn={isLoggedIn}
         refreshUser={refreshUser}
-        /> : <div style={{display:'flex',justifyContent:'center',height:'100vh',alignItems:'center'}}>
-        <i style={{fontSize:'5rem',color:'rgb(189, 209, 138)'}} 
+        /> : <div className={styles.container}>
+        <i id={styles.logo} 
           className="fas fa-kiwi-bird">
         </i>
       </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {signInWithPopup} from 'firebase/auth'
 import { authService,googleProvider,githubProvider } from '../../fbase';
-import AuthForm from '../../components/auth_Form/AuthForm';
-import styles from './Auth.module.css'; 
+import AuthForm from '../../components/auth_Form/authForm';
+import styles from './auth.module.css'; 
 
 const Auth=()=>{
 
@@ -26,14 +26,14 @@ const Auth=()=>{
                     name="google"
                     onClick={onSocialClick}>
                     <i className="fab fa-google" style={{color:'firebrick'}}></i>
-                    <span style={{marginLeft:'5px'}}>Sign in with Google</span>
+                    <span style={{marginLeft:'5px'}}>Google Login</span>
                 </button>
                 <button 
                     className={styles.login__github}
                     name="github"
                     onClick={onSocialClick}>
                     <i className="fab fa-github" style={{color:"purple"}}></i>
-                    <span style={{marginLeft:'5px'}}>Sign in with Github</span>
+                    <span style={{marginLeft:'5px'}}>Github Login</span>
                 </button>
             </div>
         </div>

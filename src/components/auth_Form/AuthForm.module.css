@@ -1,10 +1,24 @@
 .authform__container{
-    padding:20px;
+    display: flex;
+    flex-direction: column;
+    height:60vh;
+    justify-content: center;
+    align-items: center;
     text-align:center;
-    height:100%;
+}
+
+.authform__box{
+    /* background-image: linear-gradient(to top, #c1dfc4 10%, #deecdd 60%); */
+    /* background-color: rgb(231, 255, 218); */
+    border:2px solid  rgb(226, 235, 161);
+    padding:30px;
+    border-radius:20px;
 }
 
 .kwitter{
+    font-size:17px;
+    color:rgb(142, 181, 98);
+    margin:0;
     padding-bottom:20px;
 }
 
@@ -36,5 +50,5 @@
 }
 
 .toggle__btn:hover{
-    color:rgb(143, 157, 109);
+    color:rgb(153, 179, 93);
 }
