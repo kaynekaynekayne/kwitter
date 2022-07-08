@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kwitter/static/css/main.cd23eff3.css",
+    "main.js": "/kwitter/static/js/main.a8c21580.js",
+    "index.html": "/kwitter/index.html",
+    "main.cd23eff3.css.map": "/kwitter/static/css/main.cd23eff3.css.map",
+    "main.a8c21580.js.map": "/kwitter/static/js/main.a8c21580.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd23eff3.css",
+    "static/js/main.a8c21580.js"
+  ]
+}
